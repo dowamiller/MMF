@@ -1,10 +1,11 @@
 import java.awt.Point;
+  int windowSize = 200, snakeWith = 10;
 void setup() {
-  size(400, 400);
+  size(200, 200);
   frameRate(10);
   init();
 }
-int windowSize = 400, snakeWith = 10, direction = 0;//0: none, 1: left, 2: right, 3: up, 4: down
+int direction = 0;//0: none, 1: left, 2: right, 3: up, 4: down
 ArrayList<Point> snakeArray = new ArrayList();
 Point nextHeadPosition, foodPosition;
 void draw() {
