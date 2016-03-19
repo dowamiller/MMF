@@ -74,17 +74,17 @@ boolean coliditonCheck() {
   }
   //wo ist der Kopf als nächstes?
   nextHeadPosition = new Point(snakeArray.get(0).x+offsetX, snakeArray.get(0).y+offsetY);
-  // Kolidierung mit dem Körper?
+  // Kollision mit dem Körper?
   for (Point p : snakeArray) {
     if (nextHeadPosition.x == p.x && nextHeadPosition.y == p.y && direction!=0) {
       return true;
     }
   }
-  //Kolidierung mit der Wand?
+  //Kollision mit der Wand?
   if (nextHeadPosition.x<snakeWith/2 || nextHeadPosition.x>=windowSize-snakeWith/2 || nextHeadPosition.y<snakeWith/2 || nextHeadPosition.y>=windowSize-snakeWith/2 ) {
     return true;
   } 
-  //Kolidierung mit Essen?
+  //Kollision mit Essen?
   else if (nextHeadPosition.x == foodPosition.x - snakeWith/2 && nextHeadPosition.y == foodPosition.y- snakeWith/2) {
     eatFood();
     return false;
