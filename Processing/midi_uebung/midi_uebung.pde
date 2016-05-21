@@ -1,6 +1,8 @@
 import themidibus.*;
+import javax.sound.midi.*;
 
 MidiBus myBus;
+Sequencer sequencer;
 
 float rotAngle = 0;
 int oldBackgroundColor = 0;
@@ -11,8 +13,21 @@ int[] velocityArray = new int[nrOfKeys];
 color[] colorArray = new color[nrOfKeys];
 int alphaBubbles = 255;
 void setup() {
-  fullScreen();
+  //fullScreen();
+  frame.setSize(400,400);
   frameRate(60);
+    try  {
+    // Sequencer initialisieren
+    sequencer = MidiSystem.getSequencer();
+    // Sequence laden
+    selectInput("Select a MIDI file to process:", "loadSeq");
+    // Sequencer oeffnen und verbinden
+    sequencer.open();
+  } 
+  catch (Exception e) { 
+    // Fehlerbehandlung 
+    e.printStackTrace();
+  }
   MidiBus.list();
   myBus = new MidiBus(this, 0, 2);
 }
